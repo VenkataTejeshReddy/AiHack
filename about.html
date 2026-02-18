@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MediPredict AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo">
+                <a href="index.html"
+                    style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <span class="logo-icon">⚕️</span>
+                    <span class="logo-text">Medi<span class="accent">Predict</span> AI</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="about.html" class="nav-btn active">About</a>
+                <a href="login.html" class="btn-primary-outline" style="text-decoration: none;">Login</a>
+                <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">☀️</button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="glass-panel"
+                style="padding: 50px; border-radius: var(--radius-lg); max-width: 800px; margin: 0 auto;">
+                <h1 class="text-gradient" style="font-size: 2.5rem; margin-bottom: 20px;">About MediPredict AI</h1>
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px;">
+                    MediPredict AI is a cutting-edge prototype designed to demonstrate the potential of artificial
+                    intelligence in early disease detection. By analyzing user-reported biomarkers and lifestyle
+                    factors, our simulated engine identifies potential risk patterns for conditions like heart disease
+                    and diabetes.
+                </p>
+
+                <h2 style="margin-bottom: 15px;">Our Technology</h2>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                    <div class="checkbox-card" style="cursor: default;">
+                        <div class="card-content">
+                            <div class="icon">🧠</div>
+                            <div class="label">Advanced Algorithms</div>
+                            <p style="font-size: 0.8rem; margin-top: 5px; color: var(--text-muted);">Pattern recognition
+                                for complex symptom combinations.</p>
+                        </div>
+                    </div>
+                    <div class="checkbox-card" style="cursor: default;">
+                        <div class="card-content">
+                            <div class="icon">🔒</div>
+                            <div class="label">Privacy First</div>
+                            <p style="font-size: 0.8rem; margin-top: 5px; color: var(--text-muted);">Your health data is
+                                processed locally and never stored.</p>
+                        </div>
+                    </div>
+                    <div class="checkbox-card" style="cursor: default;">
+                        <div class="card-content">
+                            <div class="icon">⚡</div>
+                            <div class="label">Real-time Analysis</div>
+                            <p style="font-size: 0.8rem; margin-top: 5px; color: var(--text-muted);">Instant feedback on
+                                your health profile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="assessment.html" class="btn-primary" style="text-decoration: none;">Try the AI Now</a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

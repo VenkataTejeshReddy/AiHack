@@ -19,12 +19,10 @@
                 <span class="logo-text">Medi<span class="accent">Predict</span> AI</span>
             </div>
             <nav class="main-nav">
-                <button class="nav-btn active">Home</button>
-                <button class="nav-btn">About</button>
-                <button class="btn-primary-outline">Login</button>
-                <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">
-                    ☀️
-                </button>
+                <a href="index.html" class="nav-btn active">Home</a>
+                <a href="about.html" class="nav-btn">About</a>
+                <a href="login.html" class="btn-primary-outline" style="text-decoration: none;">Login</a>
+                <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">☀️</button>
             </nav>
         </header>
 
@@ -35,7 +33,8 @@
                     <h1>AI-Powered Health <br><span class="text-gradient">Risk Assessment</span></h1>
                     <p class="hero-subtitle">Advanced machine learning algorithms to predict potential health risks
                         based on your lifestyle and biomarkers. Early detection saves lives.</p>
-                    <button class="btn-primary" id="start-btn">Start Assessment <span class="arrow">→</span></button>
+                    <a href="assessment.html" class="btn-primary" style="text-decoration: none;">Start Assessment <span
+                            class="arrow">→</span></a>
 
                     <div class="stats-container">
                         <div class="stat-item">
@@ -64,209 +63,6 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Assessment Container (Hidden initially) -->
-            <section class="assessment-section hidden" id="assessment">
-                <div class="wizard-container glass-panel">
-                    <div class="wizard-header">
-                        <h2>Health Assessment</h2>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
-                        </div>
-                        <span class="step-indicator">Step 1 of 5</span>
-                    </div>
-
-                    <form id="assessment-form">
-                        <!-- Step 1: Basic Info -->
-                        <div class="form-step active" data-step="1">
-                            <h3>Basic Information</h3>
-                            <div class="form-group">
-                                <label for="age">Age</label>
-                                <input type="number" id="age" min="1" max="120" required placeholder="e.g. 30">
-                            </div>
-                            <div class="form-group">
-                                <label for="gender">Gender</label>
-                                <select id="gender" required>
-                                    <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="btn-next">Next</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Vitals -->
-                        <div class="form-step" data-step="2">
-                            <h3>Vitals & Measurements</h3>
-                            <div class="form-group">
-                                <label for="bmi">BMI (Body Mass Index)</label>
-                                <input type="number" id="bmi" step="0.1" placeholder="e.g. 24.5">
-                            </div>
-                            <div class="form-group">
-                                <label for="bp">Blood Pressure (Systolic)</label>
-                                <input type="number" id="bp" placeholder="e.g. 120">
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="btn-prev">Back</button>
-                                <button type="button" class="btn-next">Next</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Medical History -->
-                        <div class="form-step" data-step="3">
-                            <h3>Medical History</h3>
-                            <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem">Select any
-                                conditions you or your immediate family have:</p>
-                            <div class="history-grid">
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="history" value="diabetes">
-                                    <div class="card-content">
-                                        <div class="icon">🩸</div>
-                                        <div class="label">Diabetes</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="history" value="heart_disease">
-                                    <div class="card-content">
-                                        <div class="icon">🫀</div>
-                                        <div class="label">Heart Disease</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="history" value="hypertension">
-                                    <div class="card-content">
-                                        <div class="icon">🩺</div>
-                                        <div class="label">Hypertension</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="history" value="asthma">
-                                    <div class="card-content">
-                                        <div class="icon">🫁</div>
-                                        <div class="label">Asthma</div>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="btn-prev">Back</button>
-                                <button type="button" class="btn-next">Next</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Symptoms -->
-                        <div class="form-step" data-step="4">
-                            <h3>Current Symptoms</h3>
-                            <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem">Select any
-                                symptoms you are currently experiencing:</p>
-                            <div class="symptom-grid">
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="symptom" value="chest_pain">
-                                    <div class="card-content">
-                                        <div class="icon">💔</div>
-                                        <div class="label">Chest Pain</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="symptom" value="shortness_of_breath">
-                                    <div class="card-content">
-                                        <div class="icon">😮‍💨</div>
-                                        <div class="label">Shortness of Breath</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="symptom" value="thirst">
-                                    <div class="card-content">
-                                        <div class="icon">🥤</div>
-                                        <div class="label">Excessive Thirst</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="symptom" value="urination">
-                                    <div class="card-content">
-                                        <div class="icon">🚽</div>
-                                        <div class="label">Frequent Urination</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="symptom" value="fatigue">
-                                    <div class="card-content">
-                                        <div class="icon">😴</div>
-                                        <div class="label">Fatigue</div>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card">
-                                    <input type="checkbox" name="symptom" value="dizziness">
-                                    <div class="card-content">
-                                        <div class="icon">😵</div>
-                                        <div class="label">Dizziness</div>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="btn-prev">Back</button>
-                                <button type="button" class="btn-next">Next</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 5: Lifestyle -->
-                        <div class="form-step" data-step="5">
-                            <h3>Lifestyle Factors</h3>
-                            <div class="form-group">
-                                <label>Do you smoke?</label>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="smoke" value="yes"> Yes</label>
-                                    <label><input type="radio" name="smoke" value="no"> No</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Activity Level</label>
-                                <select id="activity">
-                                    <option value="sedentary">Sedentary</option>
-                                    <option value="moderate">Moderate</option>
-                                    <option value="active">Active</option>
-                                </select>
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="btn-prev">Back</button>
-                                <button type="submit" class="btn-primary">Analyze Risk</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
-
-            <!-- Results Section (Hidden initially) -->
-            <section class="results-section hidden" id="results">
-                <div class="results-card">
-                    <div class="score-ring-container">
-                        <svg class="progress-ring" width="200" height="200">
-                            <circle class="progress-ring__circle-bg" stroke="var(--bg-input)" stroke-width="12"
-                                fill="transparent" r="90" cx="100" cy="100" />
-                            <circle class="progress-ring__circle" stroke="var(--primary)" stroke-width="12"
-                                fill="transparent" r="90" cx="100" cy="100" />
-                        </svg>
-                        <div class="score-display">
-                            <span class="score-value" id="risk-score">0</span>
-                            <span class="score-label">Risk Score</span>
-                        </div>
-                    </div>
-                    <h2 id="risk-level">Calculating...</h2>
-                    <p id="risk-description">Please wait while our AI analyzes your health profile.</p>
-
-                    <div class="recommendations">
-                        <h3>AI Recommendations</h3>
-                        <ul id="recommendation-list">
-                            <!-- Populated by JS -->
-                        </ul>
-                    </div>
-
-                    <button class="btn-secondary" id="restart-btn">Start New Assessment</button>
-                </div>
-            </section>
-
         </main>
     </div>
     <script src="script.js"></script>

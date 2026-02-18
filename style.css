@@ -179,8 +179,9 @@ body {
 .history-grid,
 .symptom-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    /* Compact grid */
+    gap: 12px;
     margin-top: 10px;
 }
 
@@ -199,37 +200,132 @@ body {
 
 .checkbox-card .card-content {
     background: var(--bg-input);
-    padding: 15px;
+    padding: 12px 8px;
+    /* Compact padding */
     border-radius: var(--radius-md);
     text-align: center;
     border: 2px solid transparent;
-    transition: all 0.2s;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 6px;
+    min-height: 90px;
 }
 
 .checkbox-card:hover .card-content {
     background: var(--bg-dark);
     border-color: var(--primary-glow);
+    transform: translateY(-2px);
 }
 
 .checkbox-card input:checked~.card-content {
     background: var(--primary-glow);
     border-color: var(--primary);
     color: var(--primary);
+    box-shadow: 0 4px 12px var(--primary-glow);
 }
 
 .checkbox-card .icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    /* Smaller icon */
 }
 
 .checkbox-card .label {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Positive Markers */
+.positive-markers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.marker-pill {
+    background: rgba(34, 197, 94, 0.15);
+    /* Success glow */
+    color: var(--success);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Action Plan Timeline */
+.action-plan {
+    margin-top: 30px;
+    border-top: 1px solid var(--bg-input);
+    padding-top: 25px;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 12px;
+    bottom: -20px;
+    width: 2px;
+    background: var(--bg-input);
+}
+
+.timeline-icon {
+    width: 26px;
+    height: 26px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: white;
+    box-shadow: 0 0 10px var(--primary-glow);
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.timeline-content h4 {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+.timeline-content p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.btn-sm-action {
+    background: var(--primary-glow);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+}
+
+.btn-sm-action:hover {
+    background: var(--primary);
+    color: white;
 }
 
 .btn-primary-outline:hover {
@@ -359,6 +455,38 @@ body {
     animation: float 6s ease-in-out infinite;
 }
 
+[data-theme="light"] {
+    --bg-dark: #f0f4f8;
+    /* Slate 50 */
+    --bg-card: rgba(255, 255, 255, 0.7);
+    /* More transparent for glass effect */
+    --bg-input: #ffffff;
+    --text-main: #1e293b;
+    /* Slate 800 */
+    --text-muted: #64748b;
+    /* Slate 500 */
+    --primary-glow: rgba(14, 165, 233, 0.15);
+
+    /* Stronger shadows for light mode depth */
+    --shadow-lg: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* ... existing styles ... */
+
+/* Enhanced Glassmorphism */
+.glass-panel {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--bg-input);
+    box-shadow: var(--shadow-lg);
+}
+
+[data-theme="light"] .glass-panel {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
 .card-1 {
     top: 20%;
     right: 10%;
@@ -388,19 +516,25 @@ body {
 }
 
 /* Form Styles (Wizard) */
+/* Improved Wizard Styles */
 .wizard-container {
     max-width: 600px;
     margin: 0 auto;
-    background: var(--bg-card);
-    padding: 40px;
+    padding: 50px;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--bg-input);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    /* For sliding animations */
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .wizard-header {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .progress-bar {
@@ -424,22 +558,45 @@ body {
 
 .form-step {
     display: none;
-    animation: fadeIn 0.4s ease;
+    animation: slideInRight 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .form-step.active {
     display: block;
 }
 
-@keyframes fadeIn {
+.form-step.exiting {
+    display: block;
+    animation: slideOutLeft 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    position: absolute;
+    width: 100%;
+    top: 130px;
+    /* Adjust based on header height */
+    left: 0;
+    padding: 0 50px;
+}
+
+@keyframes slideInRight {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateX(50px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
     }
 }
 
@@ -447,30 +604,63 @@ body {
     margin-bottom: 25px;
 }
 
-label {
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 10px;
     display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--text-muted);
+    color: var(--text-main);
 }
 
 input,
 select {
     width: 100%;
-    padding: 12px 16px;
+    padding: 14px 20px;
     background: var(--bg-input);
-    border: 1px solid transparent;
-    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    /* Prepare for focus state */
+    border-radius: var(--radius-md);
     color: var(--text-main);
     font-size: 1rem;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 input:focus,
 select:focus {
     outline: none;
     border-color: var(--primary);
-    background: var(--bg-dark);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+    transform: translateY(-1px);
+}
+
+/* Card Inputs (Checkbox/Radio) enhancements */
+.checkbox-card .card-content {
+    /* ... existing props ... */
+    border-radius: var(--radius-md);
+    border: 2px solid var(--bg-input);
+    /* Explicit border by default */
+    box-shadow: var(--shadow-sm);
+    padding: 15px;
+    text-align: center;
+    transition: all 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+[data-theme="light"] .checkbox-card .card-content {
+    background: #ffffff;
+}
+
+.checkbox-card:hover .card-content {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
 }
 
 .form-actions {

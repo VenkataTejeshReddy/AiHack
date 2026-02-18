@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment - MediPredict AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo">
+                <a href="index.html"
+                    style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <span class="logo-icon">⚕️</span>
+                    <span class="logo-text">Medi<span class="accent">Predict</span> AI</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-btn">Home</a>
+                <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">☀️</button>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <!-- Assessment Container -->
+            <section class="assessment-section" id="assessment">
+                <div class="wizard-container glass-panel">
+                    <div class="wizard-header">
+                        <h2>Health Assessment</h2>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="step-indicator">Step 1 of 5</span>
+                    </div>
+
+                    <form id="assessment-form">
+                        <!-- Step 1: Basic Info -->
+                        <div class="form-step active" data-step="1">
+                            <h3>Basic Information</h3>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" min="1" max="120" required placeholder="e.g. 30">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-next">Next</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Vitals -->
+                        <div class="form-step" data-step="2">
+                            <h3>Vitals & Measurements</h3>
+                            <div class="form-group">
+                                <label for="bmi">BMI (Body Mass Index)</label>
+                                <input type="number" id="bmi" step="0.1" placeholder="e.g. 24.5">
+                            </div>
+                            <div class="form-group">
+                                <label for="bp">Blood Pressure (Systolic)</label>
+                                <input type="number" id="bp" placeholder="e.g. 120">
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-prev">Back</button>
+                                <button type="button" class="btn-next">Next</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Medical History -->
+                        <div class="form-step" data-step="3">
+                            <h3>Medical History</h3>
+                            <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem">Select any
+                                conditions you or your immediate family have:</p>
+                            <div class="history-grid">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="history" value="diabetes">
+                                    <div class="card-content">
+                                        <div class="icon">🩸</div>
+                                        <div class="label">Diabetes</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="history" value="heart_disease">
+                                    <div class="card-content">
+                                        <div class="icon">🫀</div>
+                                        <div class="label">Heart Disease</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="history" value="hypertension">
+                                    <div class="card-content">
+                                        <div class="icon">🩺</div>
+                                        <div class="label">Hypertension</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="history" value="asthma">
+                                    <div class="card-content">
+                                        <div class="icon">🫁</div>
+                                        <div class="label">Asthma</div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-prev">Back</button>
+                                <button type="button" class="btn-next">Next</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Symptoms -->
+                        <div class="form-step" data-step="4">
+                            <h3>Current Symptoms</h3>
+                            <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem">Select any
+                                symptoms you are currently experiencing:</p>
+                            <div class="symptom-grid">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="symptom" value="chest_pain">
+                                    <div class="card-content">
+                                        <div class="icon">💔</div>
+                                        <div class="label">Chest Pain</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="symptom" value="shortness_of_breath">
+                                    <div class="card-content">
+                                        <div class="icon">😮‍💨</div>
+                                        <div class="label">Shortness of Breath</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="symptom" value="thirst">
+                                    <div class="card-content">
+                                        <div class="icon">🥤</div>
+                                        <div class="label">Excessive Thirst</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="symptom" value="urination">
+                                    <div class="card-content">
+                                        <div class="icon">🚽</div>
+                                        <div class="label">Frequent Urination</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="symptom" value="fatigue">
+                                    <div class="card-content">
+                                        <div class="icon">😴</div>
+                                        <div class="label">Fatigue</div>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="symptom" value="dizziness">
+                                    <div class="card-content">
+                                        <div class="icon">😵</div>
+                                        <div class="label">Dizziness</div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-prev">Back</button>
+                                <button type="button" class="btn-next">Next</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Lifestyle -->
+                        <div class="form-step" data-step="5">
+                            <h3>Lifestyle Factors</h3>
+
+                            <div class="form-group">
+                                <label style="margin-bottom: 12px; display: block;">Do you smoke?</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                    <label class="checkbox-card">
+                                        <input type="radio" name="smoke" value="yes">
+                                        <div class="card-content">
+                                            <div class="icon">🚬</div>
+                                            <div class="label">Yes</div>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-card">
+                                        <input type="radio" name="smoke" value="no" checked>
+                                        <div class="card-content">
+                                            <div class="icon">🚭</div>
+                                            <div class="label">No</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label style="margin-bottom: 12px; display: block;">Activity Level</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                                    <label class="checkbox-card">
+                                        <input type="radio" name="activity" value="sedentary">
+                                        <div class="card-content">
+                                            <div class="icon">🪑</div>
+                                            <div class="label">Sedentary</div>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-card">
+                                        <input type="radio" name="activity" value="moderate" checked>
+                                        <div class="card-content">
+                                            <div class="icon">🚶</div>
+                                            <div class="label">Moderate</div>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-card">
+                                        <input type="radio" name="activity" value="active">
+                                        <div class="card-content">
+                                            <div class="icon">🏃</div>
+                                            <div class="label">Active</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-prev">Back</button>
+                                <button type="submit" class="btn-primary">Analyze Risk</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Results Section (Hidden initially) -->
+            <section class="results-section hidden" id="results">
+                <div class="results-card glass-panel" style="max-width: 900px; padding: 40px;">
+                    <div
+                        style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; text-align: left; align-items: start;">
+                        <!-- Left Column: Score & Markers -->
+                        <div style="text-align: center;">
+                            <div class="score-ring-container">
+                                <svg class="progress-ring" width="200" height="200">
+                                    <circle class="progress-ring__circle-bg" stroke="var(--bg-input)" stroke-width="12"
+                                        fill="transparent" r="90" cx="100" cy="100" />
+                                    <circle class="progress-ring__circle" stroke="var(--primary)" stroke-width="12"
+                                        fill="transparent" r="90" cx="100" cy="100" />
+                                </svg>
+                                <div class="score-display">
+                                    <span class="score-value" id="risk-score">0</span>
+                                    <span class="score-label">Risk Score</span>
+                                </div>
+                            </div>
+                            <h2 id="risk-level">Calculating...</h2>
+                            <p id="risk-description">Analyzing health profile...</p>
+
+                            <!-- Positive Markers Container -->
+                            <div style="margin-top: 30px; text-align: left;">
+                                <h4
+                                    style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">
+                                    Going Well</h4>
+                                <div id="positive-markers" class="positive-markers">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Insights & Action Plan -->
+                        <div>
+                            <!-- Insights Tabs/Bars -->
+                            <div id="insights-container" style="margin-bottom: 30px;">
+                                <h3 style="margin-bottom: 15px; font-size: 1.1rem;">Health Metrics</h3>
+                                <div class="insight-bar-group" style="margin-bottom: 15px;">
+                                    <div
+                                        style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px;">
+                                        <span>Cardiac Health</span>
+                                        <span id="cardiac-score">--</span>
+                                    </div>
+                                    <div
+                                        style="height: 8px; background: var(--bg-input); border-radius: 4px; overflow: hidden;">
+                                        <div id="cardiac-bar"
+                                            style="height: 100%; background: var(--secondary); width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div class="insight-bar-group">
+                                    <div
+                                        style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px;">
+                                        <span>Metabolic Health</span>
+                                        <span id="metabolic-score">--</span>
+                                    </div>
+                                    <div
+                                        style="height: 8px; background: var(--bg-input); border-radius: 4px; overflow: hidden;">
+                                        <div id="metabolic-bar"
+                                            style="height: 100%; background: var(--accent); width: 0%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommendations -->
+                            <div class="recommendations" style="margin-bottom: 30px;">
+                                <h3>Key Risks</h3>
+                                <ul id="recommendation-list">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+
+                            <!-- Action Plan -->
+                            <div class="action-plan">
+                                <h3 style="margin-bottom: 20px;">Your Action Plan</h3>
+                                <div id="action-timeline">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-secondary" id="restart-btn">Start New Assessment</button>
+                    <a href="index.html" class="nav-btn"
+                        style="display: inline-block; margin-top: 20px; text-decoration: none;">Back to Home</a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
